@@ -1,16 +1,15 @@
-import { useParams } from "react-router-dom";
-import { recipes } from "../data/kuzya`s_recipes";
+import { useLocation } from "react-router-dom";
 
 function BlogPost () {
-    const {id} = useParams();
-    const post = recipes[id - 1];
+    const { state } = useLocation();
+    const { title, image, blog } = state;
 
     return(
         <div className="container">
             <div className="post-page_content">
-                <p className="post-title">{post.title}</p>
-                <div className="post-image"><img className="postImage" src={post.image}/></div>
-                <div className="post-body_content"><p className="post-body">{post.blog}</p></div>
+                <p className="post-title">{title}</p>
+                <div className="post-image"><img className="postImage" src={image}/></div>
+                <div className="post-body_content"><p className="post-body">{blog}</p></div>
             </div>
         </div>
     )
