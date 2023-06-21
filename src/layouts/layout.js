@@ -9,6 +9,7 @@ function Layout () {
                         <NavLink className="exile" to='/'>Home</NavLink>
                         <NavLink className="exile" to='/blog'>Blog</NavLink>
                         <NavLink className="exile" to='/about'>About me</NavLink>
+                        <NavLink className="exile" to='/create'>Add a new recipe</NavLink>
                     </nav>
                 </div>
             </header>

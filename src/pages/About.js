@@ -1,4 +1,4 @@
-function About_me () {
+function AboutMe () {
     return(
         <div className="about-container">
             <div className="about-content">
@@ -8,5 +8,5 @@ function About_me () {
     )
 }
 
-export default About_me;
+export default AboutMe;
 

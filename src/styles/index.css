@@ -153,3 +153,43 @@
   font-size: 26px;
   color: #000000;
 }
+
+.none {
+  display: none;
+}
+
+.create-post {
+  height: 900px;
+  padding-top: 25px ;
+}
+
+.create-post_title {
+  font-family: 'Geologica';
+  font-weight: 700;
+  font-size: 45px;
+  color: #bdbb0e;
+  margin-bottom: 70px;
+  margin-bottom: 30px;
+}
+
+.createForm {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.choosepage-content {
+  position: absolute;
+  width: 400px;
+  padding: 10px;
+  bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background: #defcff;
+  border: 1px solid blue;
+}
+
+.choosepage-content img {
+  width: 90px;
+}
