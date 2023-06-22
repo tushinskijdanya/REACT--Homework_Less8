@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import { PostContext } from "../App";
 import { screensavers } from "../data/screensavers";
-import { isDisabled } from "@testing-library/user-event/dist/utils";
 
 function CreatePost () {
     const { posts, setPosts } = useContext(PostContext);
@@ -70,10 +69,10 @@ function CreatePost () {
         alert('Рецепт успешно добавлен!');
         setNewPost((prev) => {
             let temp = {...prev};
-            temp.image = '',
-            temp.title = '',
-            temp.stage = '',
-            temp.blog = ''
+            temp.image = '';
+            temp.title = '';
+            temp.stage = '';
+            temp.blog = '';
             return temp;
         })
     }
