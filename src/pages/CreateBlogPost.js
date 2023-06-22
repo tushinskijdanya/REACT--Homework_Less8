@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { PostContext } from "../App";
 import { screensavers } from "../data/screensavers";
+import { isDisabled } from "@testing-library/user-event/dist/utils";
 
 function CreatePost () {
     const { posts, setPosts } = useContext(PostContext);
@@ -45,14 +46,36 @@ function CreatePost () {
         }
     }
 
+    function closedChoose (e) {
+        e.preventDefault();
+        setChoosePage(false);
+    }
+
     function thisAvatar(e) {
         e.preventDefault();
         setChoosePage(false);
-
+        setNewPost((prev) => {
+            let temp = {...prev};
+            temp.image = screensavers[idx].image;
+            return temp;
+        })
     }
 
     function sendPost (e) {
         e.preventDefault();
+        setPosts((prev) => {
+            prev.push(newPost);
+            return prev;
+        })
+        alert('Рецепт успешно добавлен!');
+        setNewPost((prev) => {
+            let temp = {...prev};
+            temp.image = '',
+            temp.title = '',
+            temp.stage = '',
+            temp.blog = ''
+            return temp;
+        })
     }
 
     function changeInput(e) {
@@ -65,21 +88,26 @@ function CreatePost () {
             <div className="create-post">
                 <p className="create-post_title">Заполните пожалуйста форму, чтобы разместить в вашем блоге новый рецепт!</p>
                 <form className="createForm">
-                    <input onChange={(e) => changeInput(e)} name="title" placeholder="Название рецепта" value={newPost.title}/>
-                    <input onChange={(e) => changeInput(e)} name="stage" placeholder="Краткое описание" value={newPost.stage}/>
-                    <input onChange={(e) => changeInput(e)} name="blog" placeholder="Ваш рецепт" value={newPost.blog}/>
-                    <button onClick={chooseAvatar}>ВЫБРАТЬ ЗАСТАВКУ</button>
+                    <input disabled={choosePage && 'disabled'} className="title-input" onChange={(e) => changeInput(e)} name="title" placeholder="Название рецепта" type="text" value={newPost.title}/>
+                    <textarea disabled={choosePage && 'disabled'} className="stage-input" onChange={(e) => changeInput(e)} name="stage" placeholder="Краткое описание" type="text" value={newPost.stage}/>
+                    <textarea disabled={choosePage && 'disabled'} className="blog-input" onChange={(e) => changeInput(e)} name="blog" placeholder="Ваш рецепт" type="text" value={newPost.blog}/>
+                    <button disabled={choosePage && 'disabled'} className="choose_active-button" onClick={chooseAvatar}>ВЫБРАТЬ ЗАСТАВКУ</button>
                     <div className={choosePage ? `choosepage-content` : `none`}>
                         {
-                            <div className="choosepage-img">
-                                <button onClick={toBack}>назад</button>
-                                <img src={screensavers[idx].image}/>
-                                <button onClick={toNext}>вперёд</button>
+                            <div className="choosepage-img_content">
+                                <div className="left-button_container"><button className="left-button" onClick={toBack}><img src='/images/left.svg'/></button></div>
+                                <img className="choosepage-img" src={screensavers[idx].image}/>
+                                <div className="right-button_container"><button className="right-button" onClick={toNext}><img src='/images/right.svg'/></button></div>
+                                <div className="close-button-block">
+                                    <button className="close-button" onClick={closedChoose}><img src="/images/close.svg"/></button>
+                                </div>
+                                <div className="choose-button_block">
+                                    <button className="choose-button" onClick={thisAvatar}>ВЫБРАТЬ</button>
+                                </div>
                             </div>
                         }
-                        <button onClick={thisAvatar}>ВЫБРАТЬ</button>
                     </div>
-                    <button onClick={sendPost}>СОХРАНИТЬ!</button>
+                    <button disabled={choosePage && 'disabled'} className="save-button" onClick={sendPost}>СОХРАНИТЬ!</button>
                 </form>
             </div>
         </div>

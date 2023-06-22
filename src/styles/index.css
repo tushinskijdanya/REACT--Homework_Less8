@@ -159,8 +159,8 @@
 }
 
 .create-post {
-  height: 900px;
   padding-top: 25px ;
+  padding-bottom: 180px;
 }
 
 .create-post_title {
@@ -176,20 +176,145 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  gap: 15px;
 }
 
 .choosepage-content {
   position: absolute;
-  width: 400px;
-  padding: 10px;
-  bottom: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  background: #defcff;
-  border: 1px solid blue;
+  bottom: 105px;
+  right: 302px;
 }
 
-.choosepage-content img {
-  width: 90px;
+.choosepage-img_content {
+  position: relative;
+  min-height: 455px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000000;
+}
+
+.left-button_container,
+.right-button_container,
+.close-button-block {
+  position: absolute;
+  top: 45%;
+}
+
+.left-button_container {
+  left: 15px;
+}
+
+.right-button_container {
+  right: 15px;
+}
+
+.close-button-block {
+  top: 25px;
+  right: 25px;
+}
+
+.left-button,
+.right-button,
+.close-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.left-button img,
+.right-button img {
+  height: 40px;
+}
+
+.left-button img:hover,
+.right-button img:hover {
+  height: 50px;
+}
+
+.choose-button_block {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+}
+
+.choose-button {
+  width: 200px;
+  height: 40px;
+  background-color: #165b9378;
+  cursor: pointer;
+  font-family: 'Geologica';
+  font-weight: 400;
+  font-size: 25px;
+  color: #c0f8f8a1;
+}
+
+.createForm input,
+.createForm textarea {
+  padding: 10px 15px 10px 15px;
+  font-family: 'Geologica';
+  font-weight: 400;
+  font-size: 22px;
+  color: #000000;
+}
+
+.createForm input::placeholder,
+.createForm textarea::placeholder {
+  font-size: 18px;
+  color: #000000a1;
+}
+
+.createForm input:focus,
+.createForm textarea:focus {
+  outline:none;
+}
+
+.title-input {
+  width: 900px;
+}
+
+.stage-input {
+  width: 1000px;
+  height: 200px;
+}
+
+.blog-input {
+  width: 1000px;
+  height: 500px;
+}
+
+.choose_active-button {
+  width: 1000px;
+  height: 37px;
+  cursor: pointer;
+  font-family: 'Geologica';
+  font-weight: 400;
+  font-size: 19px;
+}
+
+.save-button {
+  width: 200px;
+  height: 50px;
+  background: rgb(26, 225, 26);
+  color: #ffffff;
+  cursor: pointer;
+  font-family: 'Geologica';
+  font-weight: 400;
+  font-size: 25px;
+  position: relative;
+  left: 800px;
+  bottom: -30px;
+}
+
+.save-button:active {
+  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+.save-button:disabled {
+  box-shadow: none;
+  background: rgb(121, 184, 121);
 }
